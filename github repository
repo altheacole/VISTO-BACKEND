@@ -1,0 +1,26 @@
+PS C:\Users\JESUS IS LORD\visto-backend> git config --global user.email "altheacoleen.nicol@tup.edu.ph"
+>> git config --global user.name "altheacole"
+PS C:\Users\JESUS IS LORD\visto-backend> git init
+Reinitialized existing Git repository in C:/Users/JESUS IS LORD/visto-backend/.git/
+PS C:\Users\JESUS IS LORD\visto-backend> git branch -M main
+PS C:\Users\JESUS IS LORD\visto-backend> git add .
+PS C:\Users\JESUS IS LORD\visto-backend> git commit -m "Initial commit for Render deployment"
+[main (root-commit) 20d032e] Initial commit for Render deployment
+ 4 files changed, 1389 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 server.js
+PS C:\Users\JESUS IS LORD\visto-backend> git remote add origin https://github.com/altheacole/visto-video-api.git
+PS C:\Users\JESUS IS LORD\visto-backend> git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 12.70 KiB | 2.12 MiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/altheacole/visto-video-api.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+PS C:\Users\JESUS IS LORD\visto-backend> 
