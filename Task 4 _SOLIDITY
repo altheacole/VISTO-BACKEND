@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract VideoEvidence {
+    struct Evidence {
+        string videoUrl;
+        string videoHash;
+        uint256 timestamp;
+        address uploader;
+    }
+
+    // Mapping from evidence ID (uint256) to Evidence struct
+    mapping(uint256 => Evidence) public evidences;
+    uint256 public evidenceCount;
+
+    // Event emitted whenever new evidence is logged
+    event EvidenceLogged(
+        uint256 indexed id,
+        string videoUrl,
+        string videoHash,
+        uint256 timestamp,
+        address indexed uploader
+    );
+
+    function logEvidence(string memory _videoUrl, string memory _videoHash) public returns (uint256) {
+        evidenceCount++;
+        evidences[evidenceCount] = Evidence({
+            videoUrl: _videoUrl,
+            videoHash: _videoHash,
+            timestamp: block.timestamp,
+            uploader: msg.sender
+        });
+
+        emit EvidenceLogged(evidenceCount, _videoUrl, _videoHash, block.timestamp, msg.sender);
+        return evidenceCount;
+    }
+
+    function getEvidence(uint256 _id) public view returns (string memory, string memory, uint256, address) {
+        Evidence memory ev = evidences[_id];
+        return (ev.videoUrl, ev.videoHash, ev.timestamp, ev.uploader);
+    }
+}
